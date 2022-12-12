@@ -59,15 +59,15 @@ export class WeatherRequestService {
   async update({
     primaryKeyAttributes,
     body,
-    queryOptions,
+    options,
   }: {
     primaryKeyAttributes: Partial<WeatherRequestEntity>;
     body: UpdateBody<
       Omit<WeatherRequestEntity, 'createdAt' | 'updatedAt'>,
       Omit<WeatherRequestEntity, 'createdAt' | 'updatedAt'>
     >;
-    queryOptions?: EntityManagerUpdateOptions<WeatherRequestEntity>;
+    options?: EntityManagerUpdateOptions<Omit<WeatherRequestEntity, 'createdAt' | 'updatedAt'>>;
   }): Promise<WeatherRequestEntity | undefined> {
-    return this.entityManager.update(WeatherRequestEntity, primaryKeyAttributes, body, queryOptions);
+    return this.entityManager.update(WeatherRequestEntity, primaryKeyAttributes, body, options);
   }
 }

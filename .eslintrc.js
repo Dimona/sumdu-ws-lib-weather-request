@@ -18,6 +18,10 @@ module.exports = {
   },
   ignorePatterns: ['.eslintrc.js'],
   rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: false, optionalDependencies: false, peerDependencies: false },
+    ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

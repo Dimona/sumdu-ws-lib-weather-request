@@ -32,8 +32,8 @@ export class WeatherRequestService {
     return this.entityManager.create(entity, options);
   }
 
-  delete(id: string): Promise<{ success: boolean }> {
-    return this.entityManager.delete(WeatherRequestEntity, { id });
+  delete(id: string, targetDate: string): Promise<{ success: boolean }> {
+    return this.entityManager.delete(WeatherRequestEntity, { id, targetDate });
   }
 
   async count({

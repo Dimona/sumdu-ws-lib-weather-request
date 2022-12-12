@@ -69,10 +69,13 @@ test('delete', async () => {
   const res = { success: true };
   (entityManager.delete as any).mockImplementation(() => Promise.resolve(res));
 
-  const result = await weatherRequestService.delete(weatherRequest.id);
+  const result = await weatherRequestService.delete(weatherRequest.id, weatherRequest.targetDate);
 
   expect(result).toEqual(res);
-  expect(entityManager.delete).toHaveBeenCalledWith(WeatherRequestEntity, { id: weatherRequest.id });
+  expect(entityManager.delete).toHaveBeenCalledWith(WeatherRequestEntity, {
+    id: weatherRequest.id,
+    targetDate: weatherRequest.targetDate,
+  });
 });
 
 test('count', async () => {

@@ -18,4 +18,4 @@ import { WeatherRequestService } from './service';
   providers: [WeatherRequestService],
   exports: [WeatherRequestService],
 })
-export class AwsWeatherRequestModule {}
+export class WeatherRequestModule {}

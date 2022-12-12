@@ -12,6 +12,7 @@ export const awsDynamodbConfig = registerAs(AWS_DYNAMODB_CONFIG, () => {
     client: {
       apiVersion: process.env.AWS_DYNAMODB_API_VERSION || AWS_DYNAMODB_API_VERSION,
       endpoint: process.env.MOCK_DYNAMODB_ENDPOINT || (env === 'local' ? process.env.DYNAMODB_LOCAL : undefined),
+      region: process.env.MOCK_DYNAMODB_ENDPOINT ? 'local' : undefined,
       retryMode: 'standard',
     },
     connections: {
